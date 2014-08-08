@@ -233,6 +233,25 @@ else
 fi
 ### end mac-components/rcm
 
+fancy_echo "Installing Python 2.7.x and Virtualenv Wrapper"
+	brew_install_or_upgrade 'python'
+	pip install virtualenvwrapper
+
+	if ! grep -qs "WORKON_HOME" ~/.zshrc; then
+    printf 'export WORKON_HOME="~/Documents/Development/CBien/virtualenvs"' >> ~/.zshrc
+    printf 'source /usr/local/bin/virtualenvwrapper.sh\n' >> ~/.zshrc
+
+    fancy_echo "Reload zsh configuration ..."
+      eval "source ~/.zshrc"
+  fi
+
+  # Fix the libxml path
+	sudo ln -sfv /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml2/libxml/ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/libxml
+
+	# Fix the freetype2 path
+	ln -sfv /usr/local/include/freetype2 /usr/local/include/freetype
+### end mac-components/python
+
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   if [[ -f ~/.laptop.local ]]; then
     source ~/.laptop.local
