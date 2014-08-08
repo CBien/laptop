@@ -252,6 +252,12 @@ fancy_echo "Installing Python 2.7.x and Virtualenv Wrapper"
 	ln -sfv /usr/local/include/freetype2 /usr/local/include/freetype
 ### end mac-components/python
 
+fancy_echo "Installing the gem kicker ..."
+  gem install kicker
+fancy_echo "Installing the gem libmagic ..."
+  brew_install_or_upgrade 'libmagic'
+### end mac-components/utils
+
 fancy_echo "Installing your personal additions from ~/.laptop.local ..."
   if [[ -f ~/.laptop.local ]]; then
     source ~/.laptop.local

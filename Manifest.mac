@@ -18,4 +18,5 @@ mac-components/heroku
 mac-components/github
 mac-components/rcm
 mac-components/python
+mac-components/utils
 common-components/personal-additions

@@ -1,0 +1,4 @@
+fancy_echo "Installing the gem kicker ..."
+  gem install kicker
+fancy_echo "Installing libmagic ..."
+  brew_install_or_upgrade 'libmagic'
